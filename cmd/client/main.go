@@ -39,8 +39,8 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	log.Printf("Stdout: %s\n", result.Stdout)
-	log.Printf("Stderr: %s\n", result.Stderr)
+	log.Printf("Stdout: \n%s\n", result.Stdout)
+	log.Printf("Stderr: \n%s\n", result.Stderr)
 }
 
 type Command struct {
