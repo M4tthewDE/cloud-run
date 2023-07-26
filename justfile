@@ -16,10 +16,14 @@ debug:
     dlv debug main.go
 
 docker-build: 
-    docker build --tag ghcr.io/m4tthewde/cloud-run:latest .
+    docker build --tag gcr.io/esc-api-384517/cloud-run:latest .
 
-docker-release version:
-    git checkout {{version}}
-    docker build --tag ghcr.io/m4tthewde/cloud-run:{{version}} .
-    docker push ghcr.io/m4tthewde/cloud-run:{{version}}
+docker-push:
+    docker build --tag gcr.io/esc-api-384517/cloud-run:latest .
+    docker push gcr.io/esc-api-384517/cloud-run:latest
 
+infra: destroy-infra
+    cd infra; terraform apply -auto-approve
+
+destroy-infra:
+    cd infra; terraform destroy -auto-approve
