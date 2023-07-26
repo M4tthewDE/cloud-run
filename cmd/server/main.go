@@ -12,6 +12,7 @@ import (
 
 func main() {
 	http.HandleFunc("/cmd", cmdHandler)
+	http.HandleFunc("/ping", pingHandler)
 
 	log.Println("Starting server on :8080")
 
@@ -19,6 +20,11 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+}
+
+func pingHandler(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("PONG"))
+	return
 }
 
 func cmdHandler(w http.ResponseWriter, r *http.Request) {
