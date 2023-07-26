@@ -20,8 +20,6 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	request.Header.Add("TOKEN", os.Getenv("TOKEN"))
-
 	client := &http.Client{}
 
 	resp, err := client.Do(request)

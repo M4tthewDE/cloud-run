@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"os"
 	"os/exec"
 	"strings"
 )
@@ -28,12 +27,6 @@ func pingHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func cmdHandler(w http.ResponseWriter, r *http.Request) {
-	token := r.Header.Get("token")
-	if token != os.Getenv("TOKEN") {
-		w.WriteHeader(http.StatusForbidden)
-		return
-	}
-
 	if r.Method != "POST" {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 		return
