@@ -6,7 +6,7 @@ run:
 client CMD:
     go run cmd/client/main.go "{{CMD}}"
 
-clean:
+url clean:
     rm main
 
 build: 
