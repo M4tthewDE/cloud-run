@@ -7,15 +7,7 @@ resource "google_cloud_run_v2_service" "default" {
   template {
     containers {
       image = "gcr.io/esc-api-384517/cloud-run:latest"
-      env {
-        name = "TOKEN"
-        value = var.TOKEN
-      }
     }
   }
 }
 
-variable "TOKEN" {
-  type = string
-  description = "API Token"
-}

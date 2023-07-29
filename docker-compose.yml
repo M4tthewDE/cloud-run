@@ -1,0 +1,6 @@
+services:
+  cloud-run:
+    image: gcr.io/esc-api-384517/cloud-run:latest
+    ports:
+      - "8080:8080"
+

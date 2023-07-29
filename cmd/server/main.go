@@ -35,6 +35,7 @@ func cmdHandler(w http.ResponseWriter, r *http.Request) {
 	var cmd Command
 	err := json.NewDecoder(r.Body).Decode(&cmd)
 	if err != nil {
+		log.Println(err)
 		http.Error(w, err.Error(), http.StatusBadRequest)
 	}
 
@@ -51,6 +52,7 @@ func cmdHandler(w http.ResponseWriter, r *http.Request) {
 
 	err = execCmd.Run()
 	if err != nil {
+		log.Println(err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 

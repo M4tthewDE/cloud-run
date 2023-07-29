@@ -15,10 +15,16 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	request, err := http.NewRequest("POST", "http://localhost:8080/cmd", bytes.NewBuffer(data))
+	url := os.Getenv("URL")
+
+	request, err := http.NewRequest("POST", url+"cmd", bytes.NewBuffer(data))
 	if err != nil {
 		log.Fatalln(err)
 	}
+
+	token := os.Getenv("TOKEN")
+
+	request.Header.Add("Authorization", "Bearer "+token)
 
 	client := &http.Client{}
 

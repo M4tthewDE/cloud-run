@@ -22,7 +22,7 @@ docker-push:
     docker build --tag gcr.io/esc-api-384517/cloud-run:latest .
     docker push gcr.io/esc-api-384517/cloud-run:latest
 
-infra: destroy-infra
+infra: docker-push destroy-infra
     cd infra; terraform apply -auto-approve
 
 destroy-infra:

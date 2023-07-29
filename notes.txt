@@ -1,0 +1,6 @@
+grep Cap /proc/1/status
+
+CapInh:	0000000000000000
+CapPrm:	000001ffffffffff
+CapEff:	000001ffffffffff
+CapBnd:	000001ffffffffff
